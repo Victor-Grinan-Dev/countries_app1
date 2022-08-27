@@ -1,0 +1,24 @@
+.browse{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.search{
+    margin-top: 20px;
+}
+
+.searchImput{
+    line-height: 20px;
+    border-radius: 5px;
+}
+
+.showCards{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-evenly;
+}

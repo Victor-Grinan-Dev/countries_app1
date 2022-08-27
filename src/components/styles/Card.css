@@ -1,0 +1,79 @@
+
+.cardBox{
+    width:450px;
+    min-height:200px;
+    background-color:bisque;
+    background-size:100%;
+    display:flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+    margin:10px;
+    padding: 10px 0 ;
+    border-radius:10px;
+}
+
+.inner{
+    background-color:"black";
+    width:420px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    border-radius:10px;
+    color:#fff;
+    filter: grayscale(50%);
+    text-shadow: 0 0 5px black;
+}
+
+.moreData{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    font-size: smaller;
+    justify-content: space-evenly;
+    margin: 5px;
+}
+
+.smallData{
+    margin: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 250px;
+}
+
+.smallData .div {
+    margin: 10pxs;
+
+}
+
+.repeatedSmallData{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.repeatedSmallData .p {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.flag{
+    width: 50px;
+    margin: 5px;
+}
+
+.info{
+    background-color: rgb(226, 95, 43);
+    padding: 5px 15px;
+    border-radius: 20px;
+}
+
+.tinyIcon{
+    width: 20px;
+    filter: grayscale(100%);
+}
+
+
