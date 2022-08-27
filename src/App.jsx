@@ -5,6 +5,7 @@ import Browse from './components/pages/Browse';
 import SingleItem from './components/pages/SingleItem';
 import Test from './components/pages/Test';
 
+import './components/styles/singleItem.css'
 import './components/styles/home.css';
 import './components/styles/browse.css'
 import './components/styles/Card.css';

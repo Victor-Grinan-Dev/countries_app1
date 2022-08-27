@@ -16,8 +16,6 @@ import axios from 'axios';
 //ex data in: [10.5, 0.5, 0.0035, 0.00010]
 //ex data out: [10.5M, 500k, 3.5k, 100]
 
-const openWeather = "https://api.openweathermap.org/data/2.5/weather";
-const secretKey = "80e877059407012cbef59f8ac82bcf1c";
 
 
 function BSCard({
@@ -33,24 +31,14 @@ function BSCard({
 }) {
 
   const [loading, setLoading] = useState(false);
-  const [weatherData, setWeatherData] = useState({})
+
   const [weateher, setWeather] = useState();
 
 
   const capitalStart = (str) => str.charAt(0).toUpperCase() + str.slice(1);
   const cityImage = 'https://source.unsplash.com/500x400/?'  +  commonName; //+ capital;
-  //const getWeather = (city) => axios.get(`${openWeather}?q=${city}&appid=${secretKey}&units=metric`);
-
-// useEffect(() => {
-//   getWeather(capital).then(res=>{
-//     console.log(res.data);
-//     //const data = res.data.main;
-//     //setWeatherData(data);
-//     })
-//   }, []);
 
 
-  console.log(weatherData)
   return (
     <div style={{
       margin:"20px 0"
