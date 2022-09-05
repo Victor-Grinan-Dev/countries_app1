@@ -2,7 +2,8 @@ import React from 'react';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { initializeCountries, search} from '../../features/countries/countriesSlice';
-import BSCard from '../UIs/BSCard'
+import BSCard from '../UIs/BSCard';
+import { Spinner } from 'react-bootstrap';
 
 function Browse() {
   const dispatch = useDispatch();
@@ -15,13 +16,13 @@ function Browse() {
 }, [dispatch])
 
 
-  // const countriesFilter = countries.filter((res) => {
+  // const countriesFilter = countriesList.filter((res) => {
   //   res.name.common = res.name.common;
   //   return res.name.common.toLowerCase().includes(search);
   // });
  
   if (loading) {
-    return <p>Loading...</p>;
+    return <Spinner/>;
   }
 
   return (
@@ -39,8 +40,10 @@ function Browse() {
       }}
       >
 
-          {countriesList.map((country, index) => (
-                //  console.log(country)
+          {countriesList.filter((country) => {
+
+            return country.name.common.toLowerCase().includes(searchInput.toLowerCase())
+          }).map((country, index) => (  
               <BSCard 
               key={index}
               //key={country.ccn3}

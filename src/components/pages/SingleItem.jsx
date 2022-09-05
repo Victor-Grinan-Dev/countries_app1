@@ -4,34 +4,17 @@ import { useLocation } from 'react-router-dom';
 import axios from 'axios';
 
 function SingleItem({weatherdata}) {
-  const [weatherData, setWeatherData] = useState({})
+  //const [weatherData, setWeatherData] = useState({})
   const location = useLocation();
   const data = location.state.data;
   const name = data.name.common;
 
   const countryImage = 'https://source.unsplash.com/500x400/?' + name;
-
   const openWeather = "https://api.openweathermap.org/data/2.5/weather";
-  const secretKey = "80e877059407012cbef59f8ac82bcf1c";
-
-  const getWeather = (city) => axios.get(`${openWeather}?q=${city}&appid=${secretKey}&units=metric`);
-
-  useEffect(() => {
-    getWeather(data.capital).then(res=>{
-      //console.log(res.data);
-      //console.log(res.data.main.temp);
-      const data = res.data.main;
-      setWeatherData(data);
-      })
-      .catch((err)=>{
-        console.log("connection error: ", err);
-      })
-    }, []);
-
-  console.log(weatherdata)
+  const secretKey = process.env.REACT_APP_WEATHER_ID;
 
   return (
-    //TODO: clean the css
+
     <div 
     style={{
       color:"white"
@@ -40,14 +23,7 @@ function SingleItem({weatherdata}) {
     className="singleItem"
     >
 
-         <h2 >Name: {data.name.common} <img src={data.flags.png} alt={data.name.common} style={{ width:"30px" }} /></h2>
-        <hr />
-        <p>Official name: {data.name.official}</p>
-        <p>Population: {data.population}</p>
-        <p>Capital: {data.capital}</p> 
-        <p>temp now: {data.main.temp}</p>
-        {weatherData.temperature && <p>Temperature in the capital: {weatherData.temperature}</p> }
-        <img src={countryImage} alt="country" />
+
     </div>
   )
 }

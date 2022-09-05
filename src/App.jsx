@@ -39,10 +39,13 @@ const App = () => {
                 <Nav.Link to="#home">Home</Nav.Link>
               </LinkContainer>
 
-              <LinkContainer to="/Browse">
+              {/* <LinkContainer to="/Browse">
+                <Nav.Link >Browse</Nav.Link>
+              </LinkContainer> */}
+              
+              <LinkContainer to={`/Browse/:country`}>
                 <Nav.Link >Browse</Nav.Link>
               </LinkContainer>
-              
  
               <NavDropdown title="Dropdown" id="basic-nav-dropdown">
 
