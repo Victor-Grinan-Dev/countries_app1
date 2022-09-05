@@ -4,6 +4,7 @@ import Home from './components/pages/Home';
 import Browse from './components/pages/Browse';
 import SingleItem from './components/pages/SingleItem';
 import Test from './components/pages/Test';
+import { useSelector } from 'react-redux';
 
 import './components/styles/singleItem.css'
 import './components/styles/home.css';

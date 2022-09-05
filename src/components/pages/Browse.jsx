@@ -1,44 +1,25 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
-import axios from 'axios';
-
-import BSCard from '../UIs/BSCard';
-
-const countriesApi = "https://restcountries.com/v3.1/all";
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { initializeCountries, search} from '../../features/countries/countriesSlice';
+import BSCard from '../UIs/BSCard'
 
 function Browse() {
-  const [countries, setCountries] = useState([]);
-  const [countriesWeather, setCountriesWeather] = useState({});
-
-  const [search, setSearch] = useState('');
-  const [loading, setLoading] = useState(false);
-
-  const searchHandler = (e) => {
-    setSearch(e.target.value); 
-    };
-
-  const getcountries = () => axios.get(countriesApi);
-  
-
-  const countriesFilter = countries.filter((res) => {
-    res.name.common = res.name.common;
-    return res.name.common.toLowerCase().includes(search);
-  });
-
+  const dispatch = useDispatch();
+  const countriesList = useSelector((state) => state.countries.countries);
+  const loading  = useSelector((state) => state.countries.isLoading);
+  const searchInput = useSelector((state) => state.countries.search);
 
   useEffect(() => {
-    setLoading(true);
-      Promise.all([getcountries()]).then(function (results) {
-      const countriesData = results[0]; 
-      setCountries(countriesData.data);
-      countries.map(country => {
-        //console.log(country.capital)
-      })
-    
-      setLoading(false);
-    });
-  }, []);
+    dispatch(initializeCountries())
+}, [dispatch])
 
+
+  // const countriesFilter = countries.filter((res) => {
+  //   res.name.common = res.name.common;
+  //   return res.name.common.toLowerCase().includes(search);
+  // });
+ 
   if (loading) {
     return <p>Loading...</p>;
   }
@@ -47,7 +28,7 @@ function Browse() {
     <div className="browse">
       
       <div className="search" >
-        <input type="text" className="searchImput" placeholder="🔍" onChange={searchHandler} />
+        <input type="text" className="searchImput" placeholder="🔍" onChange={(e)=>dispatch(search(e.target.value))} />
       </div>
 
       <div className="showCards" 
@@ -58,7 +39,7 @@ function Browse() {
       }}
       >
 
-          {countriesFilter.map((country, index) => (
+          {countriesList.map((country, index) => (
                 //  console.log(country)
               <BSCard 
               key={index}
