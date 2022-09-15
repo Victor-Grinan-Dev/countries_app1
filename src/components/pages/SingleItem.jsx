@@ -11,11 +11,11 @@ function SingleItem({weatherdata}) {
 
   const countryImage = 'https://source.unsplash.com/500x400/?' + name;
 
-  const openWeather = "https://api.openweathermap.org/data/2.5/weather?";
-  const secretKey = "80e877059407012cbef59f8ac82bcf1c";
+  //const openWeather = "https://api.openweathermap.org/data/2.5/weather?";
+  const secretKey = "";
 
-  const getWeather = (city) => axios.get(`${openWeather}?q=${city}&appid=${secretKey}&units=metric`);
-
+  //const getWeather = (city) => axios.get(`${openWeather}?q=${city}&appid=${secretKey}&units=metric`);
+/*
   useEffect(() => {
     getWeather(data.capital).then(res=>{
       console.log(res.data);
@@ -28,6 +28,8 @@ function SingleItem({weatherdata}) {
     }, []);
 
   console.log(weatherdata)
+*/
+
 
   return (
     //TODO: clean the css
