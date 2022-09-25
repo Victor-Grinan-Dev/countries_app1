@@ -1,6 +1,6 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
-import axios from 'axios';
+import { useEffect } from 'react';
+import { populationReader } from '../functions/populationReader';
 
 import { useDispatch, useSelector } from 'react-redux';
 import {
@@ -54,12 +54,12 @@ function Browse() {
       >
 
           {countriesFilter.map((country, index) => (
-                //  console.log(country)
+              
               <BSCard 
               key={index}
               commonName={country.name.common} 
               officialName={country.name.official}
-              population={country.population}
+              population={populationReader(country.population)}
               flag={country.flags.png}
               capital={country.capital}
               currencies={country.currencies}

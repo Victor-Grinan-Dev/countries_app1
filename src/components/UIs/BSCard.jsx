@@ -12,6 +12,7 @@ import { Button } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import { populationReader } from '../functions/populationReader';
 //TODO: Million-Thouthans conversor.
 //ex data in: [10.5, 0.5, 0.0035, 0.00010]
 //ex data out: [10.5M, 500k, 3.5k, 100]
@@ -65,7 +66,7 @@ function BSCard({
           
               <div className='smallData'>
                 <p><img src={populationIcon} alt="officialName" className="tinyIcon" /></p>
-                <p>{(population/1000000).toPrecision(2)}M</p>
+                <p>{populationReader(population)}</p>
               </div>
           
               <div className='smallData'>
