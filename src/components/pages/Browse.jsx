@@ -32,7 +32,6 @@ function Browse() {
   });
   */
 
-
   if (loading) {
     return (
       <p>Loading...</p>
@@ -58,7 +57,6 @@ function Browse() {
                 //  console.log(country)
               <BSCard 
               key={index}
-              //key={country.ccn3}
               commonName={country.name.common} 
               officialName={country.name.official}
               population={country.population}
