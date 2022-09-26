@@ -24,13 +24,10 @@ function Browse() {
     dispatch(initializeCountries());
   }, [dispatch]);
   //https://youtu.be/GuA0_Z1llYU
-  const countriesFilter = countries;
-  /*
-  .filter((res) => {
-    res.name.common = res.name.common;
-    return res.name.common.toLowerCase().includes(searchInput);
+
+  const  countriesFilter = countries.filter((res) => {
+    return res.name.common.toLowerCase().includes(searchInput.toLowerCase());
   });
-  */
 
   if (loading) {
     return (
@@ -39,7 +36,7 @@ function Browse() {
   }
 
   return (
-    <div className="browse">
+    <div className="browse page">
       
       <div className="search" >
         <input type="text" className="searchImput" placeholder="🔍" onChange={(e) => dispatch(search(e.target.value))} />

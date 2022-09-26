@@ -10,14 +10,7 @@ import currencyIcon from '../assets/countries_icons/countries_currency.png';
 //import Image from "assets/hotw-logo.png"
 import { Button } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
-import { useState, useEffect } from 'react';
-import axios from 'axios';
 import { populationReader } from '../functions/populationReader';
-//TODO: Million-Thouthans conversor.
-//ex data in: [10.5, 0.5, 0.0035, 0.00010]
-//ex data out: [10.5M, 500k, 3.5k, 100]
-
-
 
 function BSCard({
     commonName,
@@ -28,17 +21,11 @@ function BSCard({
     currencies,
     languages,
     url,
+    isSelected,
     data
 }) {
 
-  const [loading, setLoading] = useState(false);
-
-  const [weateher, setWeather] = useState();
-
-
-  const capitalStart = (str) => str.charAt(0).toUpperCase() + str.slice(1);
-  const cityImage = 'https://source.unsplash.com/500x400/?'  +  commonName; //+ capital;
-
+  const cityImage = 'https://source.unsplash.com/500x400/?'  +  commonName; 
 
   return (
     <div style={{
@@ -53,7 +40,7 @@ function BSCard({
               display:"flex",
               justifyContent:"space-between"
             }}>
-              {commonName} 
+              {commonName} {isSelected ? <p className='heart fullHeart'>❤️</p> : <p className='heart emptyHeart'>♡</p>}
               <img src={flag} alt="flag" className="flag"/>
             </Card.Title>
   
@@ -102,7 +89,7 @@ function BSCard({
           </div>
 
             <LinkContainer 
-              to={url} weatherdata={weateher} state={{data:data}}>
+              to={url} state={{data:data}}>
               <Button 
                 variant="primary" 
                 >

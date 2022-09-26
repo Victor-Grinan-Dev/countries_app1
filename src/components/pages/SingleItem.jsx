@@ -2,6 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import axios from 'axios';
+import { populationReader } from '../functions/populationReader';
 
 function SingleItem() {
   //const [weatherData, setWeatherData] = useState({})
@@ -20,7 +21,7 @@ function SingleItem() {
   const [temp, setTemp] = useState('')
   const [temp_max, setTemp_max] = useState('')
   const [temp_min, setTemp_min] = useState('')
-
+  const [weatherStation, setWeatherStation] = useState('')
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
    
@@ -36,17 +37,14 @@ useEffect(() => {
       setError(true);
       setLoading(false);
     })
-    .then((res) => {
-      //setWeatherData(res.data);
-      console.log(res.data)
-      
+    .then((res) => {      
       setFeels_like(res.data.main.feels_like);
       setHumidity(res.data.main.humidity);
       setPressure(res.data.main.pressure);
       setTemp(res.data.main.temp);
       setTemp_max(res.data.main.temp_max);
       setTemp_min(res.data.main.temp_min);
-
+      setWeatherStation(res.data.name)
       setLoading(false);
     });
   } catch (err){
@@ -72,13 +70,13 @@ if (loading){
       alignItems:"center"
     }}
 
-    className="singleItem"
+    className="singleItem page"
     >
          <h2 >Name: {data.name.common} <img src={data.flags.png} alt={data.name.common} style={{ width:"30px" }} /></h2>
         <hr />
         <p>Official name: {officialName}</p>
-        <p>Population: {population}</p>
-        <p>Capital: {capital}</p> 
+        <p>Population: {populationReader(population)}</p>
+        <p>Capital: {capital} - (Weather station: {weatherStation})</p> 
         <p>Temp: {temp}°C</p>
         <img src={countryImage} alt="country" />
 

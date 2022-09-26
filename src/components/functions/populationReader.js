@@ -1,8 +1,7 @@
 
 
 export const  populationReader = (number) => {
-    console.log(typeof number, number)
-    
+
     if(number > 1000000){
         return `${(number/1000000).toPrecision(4)} M`
     }

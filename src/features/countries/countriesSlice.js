@@ -7,7 +7,9 @@ export const countriesSlice = createSlice({
     countries: [],
     isLoading: true,
     search: '',
+    visitedCountries:[]
   },
+
   reducers: {
     getCountries(state, action) {
       state.countries = action.payload;
@@ -18,6 +20,9 @@ export const countriesSlice = createSlice({
     search(state, action) {
       state.search = action.payload;
     },
+    addVisitedCountry(state, action){
+      state.visitedCountries.push(action.payload);
+    }
   },
 });
 

@@ -3,8 +3,8 @@ import React, { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './components/pages/Home';
 import Browse from './components/pages/Browse';
 import SingleItem from './components/pages/SingleItem';
-import Test from './components/pages/Test';
-
+import About from './components/pages/About';
+import './App.css';
 import './components/styles/singleItem.css'
 import './components/styles/home.css';
 import './components/styles/browse.css'
@@ -27,7 +27,7 @@ const App = () => {
         <Container>
 
         <LinkContainer to="/">
-          <Navbar.Brand >React-Bootstrap</Navbar.Brand>
+          <Navbar.Brand >Countries App </Navbar.Brand>
         </LinkContainer>
           
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -41,26 +41,25 @@ const App = () => {
               <LinkContainer to="/Browse">
                 <Nav.Link >Browse</Nav.Link>
               </LinkContainer>
+
+              <LinkContainer to="/About">
+                <Nav.Link >About</Nav.Link>
+              </LinkContainer>
               
- 
-              <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-
-                <LinkContainer to="test">
-                  <NavDropdown.Item >Action</NavDropdown.Item>
-                </LinkContainer>
+              <NavDropdown title="Menu" id="basic-nav-dropdown">
                 
-                <LinkContainer to="test">
-                  <NavDropdown.Item >Action</NavDropdown.Item>
+                <LinkContainer to="/Browse">
+                  <NavDropdown.Item >Browse</NavDropdown.Item>
                 </LinkContainer>
 
-                <LinkContainer to="test">
-                  <NavDropdown.Item >Action</NavDropdown.Item>
+                <LinkContainer to="/About">
+                  <NavDropdown.Item >About</NavDropdown.Item>
                 </LinkContainer>
 
                 <NavDropdown.Divider />
 
                 <LinkContainer to="test">
-                  <NavDropdown.Item >Action</NavDropdown.Item>
+                  <NavDropdown.Item >Special Action</NavDropdown.Item>
                 </LinkContainer>
 
               </NavDropdown>
@@ -73,9 +72,8 @@ const App = () => {
       <Routes>   
         <Route path="/" element={<Home />} />
         <Route path="browse" element={<Browse />} />
+        <Route path="about" element={<About />} />
         <Route path="browse/:single" element={<SingleItem />} />
-
-        <Route path="test" element={<Test />} />
       </Routes>
     </BrowserRouter>
   );

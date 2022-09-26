@@ -2,4 +2,19 @@
   text-align: center;
 }
 
+body{
+  background-size: 100% 100%;
+  background-image: url('../public/world_hexes.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
 
+.page{
+  background-color: rgba(0, 0, 0, 0.874);
+  min-height: 94vh;
+}
+.refText{
+  color: white;
+  background-color: rgba(0, 0, 0, 0.881);
+  display: inline-block;
+}

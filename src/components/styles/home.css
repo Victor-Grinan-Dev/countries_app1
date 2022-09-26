@@ -19,3 +19,21 @@ body{
 .backGroundImage{
     background-image: url("http://source.unsplash.com/IoQioGLrz3Y");
 }
+
+.homeBox{
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.refs{
+    width: 100vw;
+}
+
+.title{
+    font-size: 50px;
+    padding: 15px;
+    border-radius: 10px;
+}
