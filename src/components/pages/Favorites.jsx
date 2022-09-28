@@ -13,17 +13,8 @@ function Favorites() {
         {favoriteCountries.map((country, index) => (   
               <BSCard 
               key={index}
-              commonName={country.name.common} 
-              officialName={country.name.official}
-              population={populationReader(country.population)}
-              flag={country.flags.png}
-              capital={country.capital}
-              currencies={country.currencies}
-              languages={country.languages}
-              url={`${country.name.common}`}
-              action={null}
-              isFavorite={true}
-              data={country}
+              commonName={country} 
+              url={`${country}`}
               />
 
               ))
@@ -33,3 +24,15 @@ function Favorites() {
 }
 
 export default Favorites;
+/*
+              officialName={country.name.official}
+              population={populationReader(country.population)}
+              flag={country.flags.png}
+              capital={country.capital}
+              currencies={country.currencies}
+              languages={country.languages}
+              
+              action={null}
+              isFavorite={true}
+              data={country}
+*/

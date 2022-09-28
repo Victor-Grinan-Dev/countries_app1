@@ -9,19 +9,27 @@ function Home() {
   const dispatch = useDispatch();
   const favorites = useSelector(favoriteCountriesSelector);
 
-  useEffect(()=>{
-    const tempArray = localStorage.getItem('favoriteCountries').split(',');
-    dispatch(setFavorites(tempArray));
-    console.log(tempArray);
+  useEffect(()=>{ 
+    const local = localStorage.getItem('favoriteCountries');
+    if (local){
+      console.log(local, 'length > 1', local.length > 1)
+      let temp;
+      if (local.length > 1){
+        
+        temp = (local.split(','))
+      }else{
+        temp = new Array(1).fill(local);
+      }
+      dispatch(setFavorites(temp));
+    } 
+    console.log('local: ', local, 'favorites:', favorites);
   },[]);
+
+  console.log('favorites:', favorites);
 
   return (
     <div className= "homeBox" >
       <p className="refText" > Victor Griñán's </p>
-          
-      {favorites.map((item, i) => {
-        <p key={i} className="refText" >{item}</p>
-      })}
 
       <h1 className="refText title">Countries App</h1>
 
@@ -32,7 +40,6 @@ function Home() {
           <div>
           <p className="refText" >Photo by Nataliya Vaitkevich: https://www.pexels.com/photo/passport-and-polaroid-pictures-7235902/</p>
           </div>
-          
     </div>
       
         

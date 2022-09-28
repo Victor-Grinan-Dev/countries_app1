@@ -20,7 +20,7 @@ export const countriesSlice = createSlice({
   },
 
   reducers: {
-    
+
     getCountries(state, action) {
       state.countries = action.payload;
     },
@@ -45,7 +45,6 @@ export const countriesSlice = createSlice({
 
     deleteFromFavorite(state, action){
       const newArray = state.favoriteCountries.filter(item =>{
-        console.log(item !== action.payload)
         return item !== action.payload
       })
       console.log(newArray)

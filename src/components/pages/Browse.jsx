@@ -8,6 +8,7 @@ import {
   initializeCountries,
   search,
   favoriteCountriesSelector,
+  setFavorites,
 } from '../../features/countries/countriesSlice'
 
 import BSCard from '../UIs/BSCard';
@@ -15,32 +16,41 @@ import BSCard from '../UIs/BSCard';
 function Browse() {
 
   const dispatch = useDispatch();
-
+  const favoriteList = useSelector((state) =>state.countries.favoriteList);
   const countries = useSelector((state) => state.countries.countries);
   const loading = useSelector((state) => state.countries.isLoading);
   const searchInput = useSelector((state) => state.countries.search);
 
-  const favoriteList = useSelector(favoriteCountriesSelector);
   useEffect(() => {
     dispatch(initializeCountries());
   }, [dispatch]);
 
   //TODO: take idea from https://youtu.be/GuA0_Z1llYU
 
-  useEffect(()=>{
-    localStorage.setItem('favoriteCountries', favoriteList);
-  },[favoriteList]);
-
   const  countriesFilter = countries.filter((res) => {
     return res.name.common.toLowerCase().includes(searchInput.toLowerCase());
   });
 
-  const checkIsFavorite = (country) => {
+  useEffect(()=>{ 
+    const local = localStorage.getItem('favoriteCountries');
+    if (local){
+      let temp;
+      if (local.length > 1){
+        temp = (local.split(','))
+      }else{
+        temp = new Array(1).fill(local);
+      }
+      dispatch(setFavorites(temp));
+    } 
+    console.log('local: ', local, 'favorites:', favoriteList);
+  },[]);
+
+  const checkIsFavorite = (commonName) => {
     let result = false;
     for(let item in favoriteList){
-      if (favoriteList[item].name.common === country.name.common){
-        console.log('yes', favoriteList[item].name.common)
-        return true;
+      if(item === commonName){
+        console.log(commonName, 'is in list');
+        result = true;
       }
     }
     return result;
@@ -82,7 +92,7 @@ function Browse() {
               languages={country.languages}
               url={`${country.name.common}`}
               action={()=>handleFavorite(country)}
-              isFavorite={()=>checkIsFavorite(country)}
+              isFavorite={checkIsFavorite(country.name.common)}
               data={country}
               />
               ))} 
