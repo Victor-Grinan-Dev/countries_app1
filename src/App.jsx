@@ -15,8 +15,25 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import Favorites from './components/pages/Favorites';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { addToFavorite, favoriteCountriesSelector } from './features/countries/countriesSlice';
 
 const App = () => {
+  const favoriteList = useSelector(favoriteCountriesSelector);
+  const dispatch = useDispatch();
+
+  useEffect(()=>{
+    const initialData = localStorage.getItem('favoriteCountries');
+    
+    if(initialData){
+      dispatch(addToFavorite(initialData));
+    }
+
+  },[]);
+
+ 
 
   return (
     <BrowserRouter>
@@ -39,7 +56,11 @@ const App = () => {
               </LinkContainer>
 
               <LinkContainer to="/Browse">
-                <Nav.Link >Browse</Nav.Link>
+              <Nav.Link >Browse</Nav.Link>
+              </LinkContainer>
+
+              <LinkContainer to="/favorites">
+                  <Nav.Link >Favorites</Nav.Link>
               </LinkContainer>
 
               <LinkContainer to="/About">
@@ -58,8 +79,8 @@ const App = () => {
 
                 <NavDropdown.Divider />
 
-                <LinkContainer to="test">
-                  <NavDropdown.Item >Special Action</NavDropdown.Item>
+                <LinkContainer to="/favorites">
+                  <NavDropdown.Item >Favorites</NavDropdown.Item>
                 </LinkContainer>
 
               </NavDropdown>
@@ -73,6 +94,7 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="browse" element={<Browse />} />
         <Route path="about" element={<About />} />
+        <Route path="favorites" element={<Favorites />} />
         <Route path="browse/:single" element={<SingleItem />} />
       </Routes>
     </BrowserRouter>

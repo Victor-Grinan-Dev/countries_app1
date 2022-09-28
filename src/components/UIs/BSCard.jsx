@@ -11,6 +11,8 @@ import currencyIcon from '../assets/countries_icons/countries_currency.png';
 import { Button } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import { populationReader } from '../functions/populationReader';
+import { useDispatch, useSelector } from 'react-redux';
+import { addToFavorite, deleteFromFavorite, favoriteCountriesSelector } from '../../features/countries/countriesSlice';
 
 function BSCard({
     commonName,
@@ -21,17 +23,33 @@ function BSCard({
     currencies,
     languages,
     url,
-    isSelected,
+    isFavorite,
     data
 }) {
-
+  const favoriteList = useSelector(favoriteCountriesSelector);
+  const dispatch = useDispatch();
   const cityImage = 'https://source.unsplash.com/500x400/?'  +  commonName; 
+
+  const isFavoriteHandler = (e) => {
+    
+    if(e.target.checked){
+
+      dispatch(addToFavorite(data.name.common));
+    } 
+    else {
+      dispatch(deleteFromFavorite(data.name.common));
+    }     
+  
+    
+    console.log(e.target.checked, favoriteList)
+  }
 
   return (
     <div style={{
       margin:"20px 0"
     }}>
       <Card style={{ width: '18rem' }}>
+        
         <Card.Img variant="top" src={cityImage} style={{
           backgroundColor:"beige"
         }}/>
@@ -40,7 +58,14 @@ function BSCard({
               display:"flex",
               justifyContent:"space-between"
             }}>
-              {commonName} {isSelected ? <p className='heart fullHeart'>❤️</p> : <p className='heart emptyHeart'>♡</p>}
+              {commonName} 
+
+              {/* 
+              <div className='heart'>{isFavorite ? ❤️ : ♡}</div> 
+              */}
+
+              <input type="checkbox" name="isFavorite" onClick={isFavoriteHandler}/>
+
               <img src={flag} alt="flag" className="flag"/>
             </Card.Title>
   
