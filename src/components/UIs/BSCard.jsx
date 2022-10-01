@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import Card from 'react-bootstrap/Card';
+import React, { useState, useEffect  } from 'react';
 
 import officialNameIcon from '../assets/countries_icons/countries_official_name.png';
 import populationIcon from '../assets/countries_icons/countries_population.png';
@@ -7,13 +6,14 @@ import capitalIcon from '../assets/countries_icons/countries_capital.png';
 import langIcon from '../assets/countries_icons/countries_language.png';
 import currencyIcon from '../assets/countries_icons/countries_currency.png';
 
-//import Image from "assets/hotw-logo.png"
 import { Button } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
-import { populationReader } from '../functions/populationReader';
+import Card from 'react-bootstrap/Card';
+
 import { useDispatch, useSelector } from 'react-redux';
 import { addToFavorite, deleteFromFavorite, favoriteCountriesSelector } from '../../features/countries/countriesSlice';
-import { useEffect } from 'react';
+
+import { populationReader } from '../functions/populationReader';
 
 function BSCard({
     commonName,
@@ -26,23 +26,17 @@ function BSCard({
     url,
     data
 }) {
-  const [isFavorite, setIsFavorite] = useState(false);
   const favoriteList = useSelector(favoriteCountriesSelector);
   const dispatch = useDispatch();
-  const local = localStorage.getItem('favoriteCountries');
   const cityImage = 'https://source.unsplash.com/500x400/?'  +  commonName; 
 
   useEffect(()=>{
     localStorage.setItem('favoriteCountries', favoriteList);
-    //checkIsFavorite(data.name.common);
   }, [favoriteList])
     
   const favoriteHandler = (e) => {
-    
     if(e.target.checked){
-      console.log('added', data.name.common)
-      dispatch(addToFavorite(data.name.common));
-      
+      dispatch(addToFavorite(data?.name.common));
     } 
     else {
       console.log('deleted', data.name.common)
@@ -50,19 +44,14 @@ function BSCard({
     }  
   }
 
-  const checkIsFavorite = (commonName) => {
-    setIsFavorite(false);
-    //const tempArray =  .split(',');
-    //console.log(favoriteList)
-/*
-    for(let item in tempArray){
-      console.log(tempArray[item], commonName, "are iqual: ",  item === commonName)
-      if(item === commonName){
-        console.log(commonName, 'is in list');
-        setIsFavorite(true);
+   const checkIsFavorite = (commonName) => {
+    for(let item in favoriteList){
+
+      if( favoriteList[item] === commonName){
+        return true;
       }
     }
-*/
+    return false
   };
 
   
@@ -71,7 +60,7 @@ function BSCard({
       margin:"20px 0"
     }}>
       <Card style={{ width: '18rem' }}>
-        
+        {/* checkIsFavorite(commonName) */}
         <Card.Img variant="top" src={cityImage} style={{
           backgroundColor:"beige"
         }}/>
@@ -81,13 +70,8 @@ function BSCard({
               justifyContent:"space-between"
             }}>
               {commonName} 
-
-              
-              {/*
-              <div className='heart'>{isFavorite ? '❤️' : '♡'}</div>
-              */} 
              
-              <input type="checkbox" name="isFavorite" onClick={favoriteHandler} defaultChecked={isFavorite ? true : false} value={isFavorite}/>
+             <input type="checkbox" name="isFavorite" onClick={favoriteHandler} defaultChecked={checkIsFavorite() ? true : false} value={checkIsFavorite()}/>
 
               <img src={flag} alt="flag" className="flag"/>
             </Card.Title>
@@ -141,7 +125,7 @@ function BSCard({
               <Button 
                 variant="primary" 
                 >
-                  More Info TEST
+                  More Info
                   
                 </Button>
             </LinkContainer>

@@ -1,31 +1,17 @@
 import React from 'react';
-import { useEffect } from 'react';
-
 import { useDispatch, useSelector } from 'react-redux';
 import {
   addToFavorite,
-  initializeCountries,
   search,
-  favoriteCountriesSelector,
-  setFavorites,
 } from '../../features/countries/countriesSlice'
 
 import BSCard from '../UIs/BSCard';
-import { useState } from 'react';
 
 function Browse() {
-
   const dispatch = useDispatch();
-  const favoriteList = useSelector((state) =>state.countries.favoriteList);
   const countries = useSelector((state) => state.countries.countries);
   const loading = useSelector((state) => state.countries.isLoading);
   const searchInput = useSelector((state) => state.countries.search);
-  
-  useEffect(() => {
-    dispatch(initializeCountries());
-  }, [dispatch]);
-
-  //TODO: take idea from https://youtu.be/GuA0_Z1llYU
 
   const  countriesFilter = countries.filter((res) => {
     return res.name.common.toLowerCase().includes(searchInput.toLowerCase());
@@ -63,7 +49,7 @@ function Browse() {
               currencies={country.currencies}
               languages={country.languages}
               url={`${country.name.common}`}
-              action={()=>dispatch(addToFavorite(country.name.common))}
+              action={()=>dispatch(addToFavorite(country))}
               //isFavorite={isFavorite}
               data={country}
               />

@@ -7,7 +7,8 @@ export const countriesSlice = createSlice({
     countries: [],
     isLoading: true,
     search: '',
-    favoriteCountries:[]
+    favoriteCountries:[],
+    favCountriesObjects:[],
   },
 
   reducers: {
@@ -41,7 +42,9 @@ export const countriesSlice = createSlice({
       })
       state.favoriteCountries = newArray
     },
-
+    addFavCountriesObjects(state, action){
+      state.favCountriesObjects.push(action.payload);
+    }
   },
 });
 
@@ -53,8 +56,10 @@ export const initializeCountries = () => {
   };
 };
 
-export const { getCountries, isLoading, search, addToFavorite, deleteFromFavorite, setFavorites } = countriesSlice.actions;
+export const { getCountries, isLoading, search, addToFavorite, deleteFromFavorite, setFavorites, addFavCountriesObjects } = countriesSlice.actions;
 
 export const favoriteCountriesSelector = (state) =>state.countries.favoriteCountries;
+
+export const favCountriesObjects = (state) => state.countries.favCountriesObjects;
 
 export default countriesSlice.reducer;

@@ -17,23 +17,43 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Favorites from './components/pages/Favorites';
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { setFavorites } from './features/countries/countriesSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { addFavCountriesObjects, setFavorites } from './features/countries/countriesSlice';
+import { initializeCountries } from './features/countries/countriesSlice';
 
 const App = () => {
+
+  const countries = useSelector((state)=>state.countries);
   const dispatch = useDispatch();
 
-  useEffect(()=>{
+  useEffect(() => {
+    dispatch(initializeCountries());
+    
+    if (countries){
+      
+      const favCountries = countries.favoriteCountries
+      const allCountries = countries.countries
+      for(let countryIndex in allCountries){
+        const countryName = allCountries[countryIndex].name.common;
+        for (let fav in favCountries){  
+          const favCountry = favCountries[fav]
+          if (favCountry === countryName){
+              dispatch(addFavCountriesObjects(allCountries[countryIndex]));
+          }
+        }
+      }
+    }
+
     const initialData = localStorage.getItem('favoriteCountries');
     let tempArray; 
     if(initialData){
-      tempArray = initialData.split(',');
+      tempArray = initialData.split(',');   
       dispatch(setFavorites(tempArray));
     }else{
       console.log("empty local storage");
     }
+  }, [dispatch]);
 
-  },[]);
 
   return (
     <BrowserRouter>

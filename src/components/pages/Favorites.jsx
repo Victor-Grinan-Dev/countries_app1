@@ -1,38 +1,27 @@
 import React from 'react';
-import { useSelector } from 'react-redux'; 
+import { useSelector } from 'react-redux';
 import { favoriteCountriesSelector } from '../../features/countries/countriesSlice';
-import { populationReader } from '../functions/populationReader';
-import BSCard from '../UIs/BSCard';
-
+import FavCard from '../UIs/FavCard';
 
 function Favorites() {
-    const favoriteCountries = useSelector(favoriteCountriesSelector);
+  const countries = useSelector(favoriteCountriesSelector);
+
+  console.log(countries)
   return (
-    <div className='page'>
-
-        {favoriteCountries.map((country, index) => (   
-              <BSCard 
-              key={index}
-              commonName={country} 
-              url={`${country}`}
-              />
-
-              ))
+    <div className='page' style={{ display:"flex", alignItems:"center", flexDirection:"column"}}>
+      <h2>Favorites</h2>
+      <ol className='ordered-list'>
+        {
+          countries.map((c, i) => (
+            <li  key={i}>
+              <FavCard name={c}/>
+            </li>
+          ))
         }
+      </ol>
     </div>
+
   )
 }
 
-export default Favorites;
-/*
-              officialName={country.name.official}
-              population={populationReader(country.population)}
-              flag={country.flags.png}
-              capital={country.capital}
-              currencies={country.currencies}
-              languages={country.languages}
-              
-              action={null}
-              isFavorite={true}
-              data={country}
-*/
+export default Favorites

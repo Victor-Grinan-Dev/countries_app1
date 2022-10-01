@@ -76,4 +76,14 @@
     filter: grayscale(100%);
 }
 
-
+.favCard{
+    color: black;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 75px;
+    background-color: #fff;
+    border-radius: 10px;
+    margin: 5px;
+}
