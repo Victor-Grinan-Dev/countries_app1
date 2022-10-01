@@ -1,14 +1,5 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, current } from '@reduxjs/toolkit';
 import countryService from '../../services/countries';
-
-const isFavoriteDuplicated = (element, array) => {
-  array.forEach(item => {
-    if(item === element){
-      return true;
-    }
-    return false;
-  });
-}
 
 export const countriesSlice = createSlice({
   name: 'countries',
@@ -38,16 +29,16 @@ export const countriesSlice = createSlice({
     },
     
     addToFavorite(state, action){
-      if (!isFavoriteDuplicated(action.payload, state.favoriteCountries)){
-        state.favoriteCountries.push(action.payload);
-      }
+      state.favoriteCountries.push(action.payload);
+      state.favoriteCountries = current(state).favoriteCountries.filter((element, index) => {
+        return current(state).favoriteCountries.indexOf(element) === index;
+      });
     },
 
     deleteFromFavorite(state, action){
       const newArray = state.favoriteCountries.filter(item =>{
         return item !== action.payload
       })
-      console.log(newArray)
       state.favoriteCountries = newArray
     },
 

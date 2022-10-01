@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Card from 'react-bootstrap/Card';
 
 import officialNameIcon from '../assets/countries_icons/countries_official_name.png';
@@ -23,11 +23,10 @@ function BSCard({
     capital,
     currencies,
     languages,
-    isFavorite,
     url,
     data
 }) {
-  
+  const [isFavorite, setIsFavorite] = useState(false);
   const favoriteList = useSelector(favoriteCountriesSelector);
   const dispatch = useDispatch();
   const local = localStorage.getItem('favoriteCountries');
@@ -35,6 +34,7 @@ function BSCard({
 
   useEffect(()=>{
     localStorage.setItem('favoriteCountries', favoriteList);
+    //checkIsFavorite(data.name.common);
   }, [favoriteList])
     
   const favoriteHandler = (e) => {
@@ -49,7 +49,23 @@ function BSCard({
       dispatch(deleteFromFavorite(data.name.common));
     }  
   }
- 
+
+  const checkIsFavorite = (commonName) => {
+    setIsFavorite(false);
+    //const tempArray =  .split(',');
+    //console.log(favoriteList)
+/*
+    for(let item in tempArray){
+      console.log(tempArray[item], commonName, "are iqual: ",  item === commonName)
+      if(item === commonName){
+        console.log(commonName, 'is in list');
+        setIsFavorite(true);
+      }
+    }
+*/
+  };
+
+  
   return (
     <div style={{
       margin:"20px 0"

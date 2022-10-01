@@ -17,23 +17,23 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Favorites from './components/pages/Favorites';
 import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { addToFavorite, favoriteCountriesSelector } from './features/countries/countriesSlice';
+import { useDispatch } from 'react-redux';
+import { setFavorites } from './features/countries/countriesSlice';
 
 const App = () => {
-  const favoriteList = useSelector(favoriteCountriesSelector);
   const dispatch = useDispatch();
 
   useEffect(()=>{
     const initialData = localStorage.getItem('favoriteCountries');
-    
+    let tempArray; 
     if(initialData){
-      dispatch(addToFavorite(initialData));
+      tempArray = initialData.split(',');
+      dispatch(setFavorites(tempArray));
+    }else{
+      console.log("empty local storage");
     }
 
   },[]);
-
- 
 
   return (
     <BrowserRouter>

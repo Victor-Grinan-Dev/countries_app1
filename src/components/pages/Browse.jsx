@@ -1,6 +1,5 @@
 import React from 'react';
 import { useEffect } from 'react';
-import { populationReader } from '../functions/populationReader';
 
 import { useDispatch, useSelector } from 'react-redux';
 import {
@@ -12,6 +11,7 @@ import {
 } from '../../features/countries/countriesSlice'
 
 import BSCard from '../UIs/BSCard';
+import { useState } from 'react';
 
 function Browse() {
 
@@ -20,7 +20,7 @@ function Browse() {
   const countries = useSelector((state) => state.countries.countries);
   const loading = useSelector((state) => state.countries.isLoading);
   const searchInput = useSelector((state) => state.countries.search);
-
+  
   useEffect(() => {
     dispatch(initializeCountries());
   }, [dispatch]);
@@ -31,41 +31,12 @@ function Browse() {
     return res.name.common.toLowerCase().includes(searchInput.toLowerCase());
   });
 
-  useEffect(()=>{ 
-    const local = localStorage.getItem('favoriteCountries');
-    if (local){
-      let temp;
-      if (local.length > 1){
-        temp = (local.split(','))
-      }else{
-        temp = new Array(1).fill(local);
-      }
-      dispatch(setFavorites(temp));
-    } 
-    console.log('local: ', local, 'favorites:', favoriteList);
-  },[]);
-
-  const checkIsFavorite = (commonName) => {
-    let result = false;
-    for(let item in favoriteList){
-      if(item === commonName){
-        console.log(commonName, 'is in list');
-        result = true;
-      }
-    }
-    return result;
-  }
-
-  const handleFavorite = (item) => {
-    dispatch(addToFavorite(item))
-  }
-
   if (loading) {
     return (
       <p>Loading...</p>
     );
   }
-
+  
   return (
     <div className="browse page">
       
@@ -81,22 +52,22 @@ function Browse() {
       }}
       >
           {countriesFilter.map((country, index) => (
+              
               <BSCard 
               key={index}
               commonName={country.name.common} 
               officialName={country.name.official}
-              population={populationReader(country.population)}
+              population={country.population}
               flag={country.flags.png}
               capital={country.capital}
               currencies={country.currencies}
               languages={country.languages}
               url={`${country.name.common}`}
-              action={()=>handleFavorite(country)}
-              isFavorite={checkIsFavorite(country.name.common)}
+              action={()=>dispatch(addToFavorite(country.name.common))}
+              //isFavorite={isFavorite}
               data={country}
               />
-              ))} 
-              
+          ))}  
         </div>
 
     </div>
