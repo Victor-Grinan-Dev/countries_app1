@@ -50,12 +50,10 @@ function Browse() {
               languages={country.languages}
               url={`${country.name.common}`}
               action={()=>dispatch(addToFavorite(country))}
-              //isFavorite={isFavorite}
               data={country}
               />
           ))}  
         </div>
-
     </div>
   );
 };

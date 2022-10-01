@@ -1,4 +1,4 @@
-import React, { useState, useEffect  } from 'react';
+import React, { useEffect  } from 'react';
 
 import officialNameIcon from '../assets/countries_icons/countries_official_name.png';
 import populationIcon from '../assets/countries_icons/countries_population.png';

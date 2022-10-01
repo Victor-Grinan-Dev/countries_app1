@@ -1,5 +1,5 @@
 
-import React, { BrowserRouter, Routes, Route } from 'react-router-dom';
+import React, { HashRouter, Routes, Route } from 'react-router-dom';
 import Home from './components/pages/Home';
 import Browse from './components/pages/Browse';
 import SingleItem from './components/pages/SingleItem';
@@ -52,11 +52,11 @@ const App = () => {
     }else{
       console.log("empty local storage");
     }
-  }, [dispatch]);
+  }, [dispatch, countries]);
 
 
   return (
-    <BrowserRouter>
+    <HashRouter>
 
       <Navbar bg="light" expand="lg" style={{
         width:"100vw",
@@ -117,7 +117,7 @@ const App = () => {
         <Route path="favorites" element={<Favorites />} />
         <Route path="browse/:single" element={<SingleItem />} />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 };
 
