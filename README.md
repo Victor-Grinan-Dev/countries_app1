@@ -20,7 +20,8 @@ Countries App is an Appication for React Advance course of HBC.
 - clone the repo
 - cd into it
 - npm i
+- npm start
 
 ## checkl it OnLine:
 
--
+- https://victor-grinan-dev.github.io/countries_app1/

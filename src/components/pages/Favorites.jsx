@@ -5,8 +5,6 @@ import FavCard from '../UIs/FavCard';
 
 function Favorites() {
   const countries = useSelector(favoriteCountriesSelector);
-
-  console.log(countries)
   return (
     <div className='page' style={{ display:"flex", alignItems:"center", flexDirection:"column"}}>
       <h2>Favorites</h2>
