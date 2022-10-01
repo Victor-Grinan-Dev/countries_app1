@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/countries_app1/static/css/main.53a89460.css",
+    "main.js": "/countries_app1/static/js/main.625ab5ec.js",
+    "static/media/world_hexes.jpg": "/countries_app1/static/media/world_hexes.d5979a367befe8391a0e.jpg",
+    "static/media/countries_currency.png": "/countries_app1/static/media/countries_currency.85ad206b6cbab8d604e3.png",
+    "static/media/countries_population.png": "/countries_app1/static/media/countries_population.0bd6b713e005d35b7a4b.png",
+    "static/media/countries_capital.png": "/countries_app1/static/media/countries_capital.203e0779d0241873a181.png",
+    "static/media/countries_language.png": "/countries_app1/static/media/countries_language.425095843e4b11165eb0.png",
+    "index.html": "/countries_app1/index.html",
+    "main.53a89460.css.map": "/countries_app1/static/css/main.53a89460.css.map",
+    "main.625ab5ec.js.map": "/countries_app1/static/js/main.625ab5ec.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.53a89460.css",
+    "static/js/main.625ab5ec.js"
+  ]
+}
