@@ -49,8 +49,6 @@ const App = () => {
     if(initialData){
       tempArray = initialData.split(',');   
       dispatch(setFavorites(tempArray));
-    }else{
-      console.log("empty local storage");
     }
   }, [dispatch, countries]);
 
