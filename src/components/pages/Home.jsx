@@ -1,6 +1,4 @@
-import React, { useEffect } from 'react';
-
-const image = "http://source.unsplash.com/IoQioGLrz3Y";
+import React from 'react';
 
 function Home() {
 

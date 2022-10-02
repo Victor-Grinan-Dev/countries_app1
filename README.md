@@ -2,7 +2,7 @@
 
 ## About:
 
-Countries App is an Appication for React Advance course of HBC.
+Countries App is an Application for React Advance course of HBC. Is meant to be a compilation of skillis learned during the React22K course.
 
 ## Technologies:
 

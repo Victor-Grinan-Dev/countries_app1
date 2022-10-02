@@ -20,12 +20,6 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addFavCountriesObjects, setFavorites } from './features/countries/countriesSlice';
 import { initializeCountries } from './features/countries/countriesSlice';
-import { Link } from 'react-router-dom';
-
-const anchorStyle = {
-  textDecoration:"none",
-  color: "black"
-}
 
 const App = () => {
 
