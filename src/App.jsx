@@ -20,6 +20,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addFavCountriesObjects, setFavorites } from './features/countries/countriesSlice';
 import { initializeCountries } from './features/countries/countriesSlice';
+import { Link } from 'react-router-dom';
 
 const anchorStyle = {
   textDecoration:"none",
@@ -91,9 +92,7 @@ const App = () => {
               <LinkContainer to="/About">
                 <Nav.Link >About</Nav.Link>
               </LinkContainer>
-              
-              <a href="https://en.bc.fi/" style={anchorStyle} target="blank" >HBC</a> 
-              
+          
               <NavDropdown title="Menu" id="basic-nav-dropdown">
                 
                 <LinkContainer to="/Browse">
