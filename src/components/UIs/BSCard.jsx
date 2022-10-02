@@ -72,7 +72,7 @@ function BSCard({
               {commonName} 
              
             <div>
-              <p>favorite</p>
+              <label htmlFor="isFavorite">Favorite</label>
               <input type="checkbox" name="isFavorite" onClick={favoriteHandler} defaultChecked={checkIsFavorite() ? true : false} value={checkIsFavorite()}/>
             </div>
 
