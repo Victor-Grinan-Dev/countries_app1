@@ -71,7 +71,10 @@ function BSCard({
             }}>
               {commonName} 
              
-             <input type="checkbox" name="isFavorite" onClick={favoriteHandler} defaultChecked={checkIsFavorite() ? true : false} value={checkIsFavorite()}/>
+            <div>
+              <p>favorite</p>
+              <input type="checkbox" name="isFavorite" onClick={favoriteHandler} defaultChecked={checkIsFavorite() ? true : false} value={checkIsFavorite()}/>
+            </div>
 
               <img src={flag} alt="flag" className="flag"/>
             </Card.Title>

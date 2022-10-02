@@ -22,7 +22,8 @@ import { addFavCountriesObjects, setFavorites } from './features/countries/count
 import { initializeCountries } from './features/countries/countriesSlice';
 
 const anchorStyle = {
-  textDecoration:"none"
+  textDecoration:"none",
+  color: "black"
 }
 
 const App = () => {
@@ -91,7 +92,7 @@ const App = () => {
                 <Nav.Link >About</Nav.Link>
               </LinkContainer>
               
-              <a href="https://en.bc.fi/" style={anchorStyle}>HBC</a> 
+              <a href="https://en.bc.fi/" style={anchorStyle} target="blank" >HBC</a> 
               
               <NavDropdown title="Menu" id="basic-nav-dropdown">
                 
