@@ -4,7 +4,7 @@
 
 Countries App is an Appication for React Advance course of HBC.
 
-## Tecnologies:
+## Technologies:
 
 - React
 - Redux
