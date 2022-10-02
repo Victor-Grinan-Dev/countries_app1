@@ -29,6 +29,7 @@ const App = () => {
   useEffect(() => {
     dispatch(initializeCountries());
     
+   
     if (countries){
       
       const favCountries = countries.favoriteCountries
@@ -43,6 +44,7 @@ const App = () => {
         }
       }
     }
+   
 
     const initialData = localStorage.getItem('favoriteCountries');
     let tempArray; 
@@ -50,7 +52,7 @@ const App = () => {
       tempArray = initialData.split(',');   
       dispatch(setFavorites(tempArray));
     }
-  }, [dispatch, countries]);
+  }, [dispatch]);
 
 
   return (
