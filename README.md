@@ -12,6 +12,20 @@ Countries App is an Appication for React Advance course of HBC.
 - Github
 - Bootstrap
 
+## Data from:
+
+- Restcountries: https://restcountries.com/v3.1/
+- Openweathermap: https://openweathermap.org
+
+## Images from:
+
+- unsplash: https://source.unsplash.com
+- Pexel: https://www.pexels.com
+
+## Icons from:
+
+- Pngwing: https://www.pngwing.com/
+
 ## Installation:
 
 - create a profile in open weather api https://openweathermap.org/api
@@ -22,6 +36,6 @@ Countries App is an Appication for React Advance course of HBC.
 - npm i
 - npm start
 
-## checkl it OnLine:
+## check it OnLine:
 
 - https://victor-grinan-dev.github.io/countries_app1/

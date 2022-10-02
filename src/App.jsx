@@ -21,6 +21,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addFavCountriesObjects, setFavorites } from './features/countries/countriesSlice';
 import { initializeCountries } from './features/countries/countriesSlice';
 
+const anchorStyle = {
+  textDecoration:"none"
+}
+
 const App = () => {
 
   const countries = useSelector((state)=>state.countries);
@@ -86,6 +90,8 @@ const App = () => {
               <LinkContainer to="/About">
                 <Nav.Link >About</Nav.Link>
               </LinkContainer>
+              
+              <a href="https://en.bc.fi/" style={anchorStyle}>HBC</a> 
               
               <NavDropdown title="Menu" id="basic-nav-dropdown">
                 

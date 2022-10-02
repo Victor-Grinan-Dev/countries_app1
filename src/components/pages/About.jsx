@@ -3,9 +3,39 @@ import React from 'react';
 function About() {
   return (
     <div className='page'>
-      <h1>About</h1>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id porro quisquam unde optio dicta non ea ex neque, accusamus atque modi itaque voluptatibus dolores soluta odit asperiores cum delectus eos ullam commodi possimus molestiae nam quasi. Eligendi a eveniet cupiditate accusantium itaque temporibus dicta, aut hic aliquid incidunt porro, deleniti voluptates? Error eligendi necessitatibus explicabo ratione quibusdam sapiente sint a commodi inventore sed. Eum culpa quod tenetur, praesentium voluptatem accusantium iste, quae quidem in veniam magnam aliquid placeat cumque vitae fugiat? Optio asperiores illum quos perferendis, est dolore deleniti explicabo ipsam perspiciatis reprehenderit iusto itaque neque placeat, odio adipisci? Repudiandae provident assumenda enim quas quaerat sint nisi soluta quae id earum libero iure nulla quisquam cum labore porro quasi, magnam culpa, odit nemo. Corrupti voluptates omnis unde, a, amet animi quibusdam repudiandae eveniet aut necessitatibus saepe facere dolores eum cum magnam, excepturi quaerat tempora dolorum aliquid nemo iure expedita! Velit nemo est quidem ea? Dignissimos pariatur eum, tenetur, eius sunt, corrupti ea esse non consequatur sit expedita quo repellendus quisquam qui totam enim iste. Saepe, sint omnis dolorum et commodi cum! Suscipit perferendis molestias laudantium impedit deleniti officiis facilis fugit enim assumenda! Nostrum veniam minus aliquam! In adipisci odio facere?</p>
-    </div>
+      <h1>About Countries-App</h1>
+
+      <p>Countries App is an Appication for React Advance course of HBC.</p>
+
+      <h2>Technologies used:</h2>
+      <p>- React</p> 
+      <p>- Redux</p> 
+      <p>- Axios</p> 
+      <p>- Github</p> 
+      <p>- Bootstrap</p> 
+
+      <h2>Data from:</h2>
+      <p>- openweathermap</p> 
+      <p>- countries rest</p> 
+      <p>- Axios</p> 
+      <p>- Github</p> 
+      <p>- Bootstrap</p> 
+
+## Installation:
+
+- create a profile in open weather api https://openweathermap.org/api
+- create a key of your own.
+- change the key in the .env file for your own
+- clone the repo
+- cd into it
+- npm i
+- npm start
+
+## checkl it OnLine:
+
+- https://victor-grinan-dev.github.io/countries_app1/
+
+</div>
   )
 }
 
