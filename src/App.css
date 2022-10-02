@@ -3,10 +3,17 @@
 }
 
 body{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
   background-size: 100% 100%;
   background-image: url('../public/assets/pexels-nataliya-vaitkevich-7235902.jpg');
   background-repeat: no-repeat;
   background-attachment: fixed;
+  background-size: 100%;
+  align-items: center;
+  flex-direction: column;
+  background-color: rgb(4, 10, 15);
 }
 
 .page{
@@ -17,6 +24,8 @@ body{
   color: white;
   background-color: rgba(0, 0, 0, 0.881);
   display: inline-block;
+  border-radius: 5px;
+  padding: 5px;
 }
 
 ol{
