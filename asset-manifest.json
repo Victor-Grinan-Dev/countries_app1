@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/countries_app1/static/css/main.e2b6260a.css",
-    "main.js": "/countries_app1/static/js/main.6adfd97e.js",
+    "main.css": "/countries_app1/static/css/main.1ef45a4f.css",
+    "main.js": "/countries_app1/static/js/main.87a05d17.js",
     "static/media/pexels-nataliya-vaitkevich-7235902.jpg": "/countries_app1/static/media/pexels-nataliya-vaitkevich-7235902.d5979a367befe8391a0e.jpg",
     "static/media/countries_currency.png": "/countries_app1/static/media/countries_currency.85ad206b6cbab8d604e3.png",
     "static/media/countries_population.png": "/countries_app1/static/media/countries_population.0bd6b713e005d35b7a4b.png",
     "static/media/countries_capital.png": "/countries_app1/static/media/countries_capital.203e0779d0241873a181.png",
     "static/media/countries_language.png": "/countries_app1/static/media/countries_language.425095843e4b11165eb0.png",
     "index.html": "/countries_app1/index.html",
-    "main.e2b6260a.css.map": "/countries_app1/static/css/main.e2b6260a.css.map",
-    "main.6adfd97e.js.map": "/countries_app1/static/js/main.6adfd97e.js.map"
+    "main.1ef45a4f.css.map": "/countries_app1/static/css/main.1ef45a4f.css.map",
+    "main.87a05d17.js.map": "/countries_app1/static/js/main.87a05d17.js.map"
   },
   "entrypoints": [
-    "static/css/main.e2b6260a.css",
-    "static/js/main.6adfd97e.js"
+    "static/css/main.1ef45a4f.css",
+    "static/js/main.87a05d17.js"
   ]
 }
