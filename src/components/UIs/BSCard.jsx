@@ -1,15 +1,12 @@
 import React, { useEffect  } from 'react';
-
 import officialNameIcon from '../assets/countries_icons/countries_official_name.png';
 import populationIcon from '../assets/countries_icons/countries_population.png';
 import capitalIcon from '../assets/countries_icons/countries_capital.png';
 import langIcon from '../assets/countries_icons/countries_language.png';
 import currencyIcon from '../assets/countries_icons/countries_currency.png';
-
 import { Button } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import Card from 'react-bootstrap/Card';
-
 import { useDispatch, useSelector } from 'react-redux';
 import { addToFavorite, deleteFromFavorite, favoriteCountriesSelector } from '../../features/countries/countriesSlice';
 
@@ -44,6 +41,7 @@ function BSCard({
   }
 
    const checkIsFavorite = (commonName) => {
+    //conditional render checkbox
     for(let item of favoriteList){
       if( item === commonName){
         return true;
@@ -52,13 +50,11 @@ function BSCard({
     return false
   };
 
-  
   return (
     <div style={{
       margin:"20px 0"
     }}>
       <Card style={{ width: '18rem' }}>
-        {/* checkIsFavorite(commonName) */}
         <Card.Img variant="top" src={cityImage} style={{
           backgroundColor:"beige"
         }}/>
@@ -68,17 +64,16 @@ function BSCard({
               justifyContent:"space-between"
             }}>
               {commonName} 
-             
-            <div>
-              <label htmlFor="isFavorite">Favorite</label>
-              <input type="checkbox" name="isFavorite" onClick={favoriteHandler} defaultChecked={checkIsFavorite(commonName) ? true : false} value={checkIsFavorite()}/>
-            </div>
-
+            
               <img src={flag} alt="flag" className="flag"/>
-            </Card.Title>
-  
-            <div >
 
+              <div>
+                <label htmlFor="isFavorite">Favorite</label>
+                <input type="checkbox" name="isFavorite" onClick={favoriteHandler} defaultChecked={checkIsFavorite(commonName) ? true : false} value={checkIsFavorite()}/>
+              </div>
+
+            </Card.Title>  
+            <div >
               <div className='smallData'>
                 <p><img src={officialNameIcon} alt="officialName" className="tinyIcon" /></p>
                 <p>{officialName}</p>
@@ -87,8 +82,7 @@ function BSCard({
               <div className='smallData'>
                 <p><img src={populationIcon} alt="officialName" className="tinyIcon" /></p>
                 <p>{populationReader(population)}</p>
-              </div>
-          
+              </div>          
               <div className='smallData'>
                 <p><img src={capitalIcon} alt="officialName" className="tinyIcon" /></p>
                 <p>{capital}</p>
@@ -104,21 +98,17 @@ function BSCard({
                   }
                 </div>
               </div>
-
               <div className='smallData'>
                 <p><img src={currencyIcon} alt="officialName" className="tinyIcon" /></p>
                 <div className="repeatedSmallData">
                   {
-                    Object.values(currencies || {}).map((value, i)=>(
-                      
-                        <p key={i}> {(i ? '' : '') + value.name} </p>
-                      
+                    Object.values(currencies || {}).map((value, i)=>(                     
+                        <p key={i}> {(i ? '' : '') + value.name} </p>                      
                     ))
                   }
                 </div>
             </div>
           </div>
-
             <LinkContainer 
               to={url} state={{data:data}}>
               <Button 
