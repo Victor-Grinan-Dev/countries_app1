@@ -16,17 +16,12 @@ function Favorites() {
       style={{display:"flex"}}>
 
         <DraggingBoard>
-          <p className='refText'>Will visit:</p>
+          
             {
               countries.map((c, i) => (
                 <FavCard key={i} name={c} id={i}/>
               ))
             }
-        </DraggingBoard>
-
-        <DraggingBoard>
-          <p className='refText'>Visited:</p>
-
         </DraggingBoard>
 
       </div>

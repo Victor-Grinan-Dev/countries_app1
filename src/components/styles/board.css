@@ -1,10 +1,14 @@
 .board{
     height: 80vh;
-    width: 40vw;
+    width: 90vw;
     background-color: rgba(0, 0, 0, 0.653);
     margin: 10px;
     border-radius: 10px;
     box-shadow: 0 0 5px white;
     overflow-y: scroll;
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    
     
 }
