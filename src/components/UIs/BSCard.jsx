@@ -39,15 +39,13 @@ function BSCard({
       dispatch(addToFavorite(data?.name.common));
     } 
     else {
-      console.log('deleted', data.name.common)
       dispatch(deleteFromFavorite(data.name.common));
     }  
   }
 
    const checkIsFavorite = (commonName) => {
-    for(let item in favoriteList){
-
-      if( favoriteList[item] === commonName){
+    for(let item of favoriteList){
+      if( item === commonName){
         return true;
       }
     }
@@ -73,7 +71,7 @@ function BSCard({
              
             <div>
               <label htmlFor="isFavorite">Favorite</label>
-              <input type="checkbox" name="isFavorite" onClick={favoriteHandler} defaultChecked={checkIsFavorite() ? true : false} value={checkIsFavorite()}/>
+              <input type="checkbox" name="isFavorite" onClick={favoriteHandler} defaultChecked={checkIsFavorite(commonName) ? true : false} value={checkIsFavorite()}/>
             </div>
 
               <img src={flag} alt="flag" className="flag"/>
@@ -100,10 +98,8 @@ function BSCard({
                 <p><img src={langIcon} alt="officialName" className="tinyIcon" /></p>
                 <div className="repeatedSmallData">
                   {
-                    Object.values(languages || {}).map((value, i)=>(
-                      
+                    Object.values(languages || {}).map((value, i)=>(      
                         <p key={i}> {(i ? '' : '') + value} </p>
-                      
                     ))
                   }
                 </div>

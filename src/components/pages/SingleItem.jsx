@@ -26,7 +26,7 @@ function SingleItem() {
   const [error, setError] = useState(false);
    
   const countryImage = 'https://source.unsplash.com/500x400/?' + country;
-  const openWeatherUrl =`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=46267ebe587dbb2011a3feb80d22fa96`; //my key doesnt work => TODO: ask Margit.
+  const openWeatherUrl =`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=46267ebe587dbb2011a3feb80d22fa96`; //my key doesnt work => TODO: ask Margit. ${process.env.REACT_APP_OPEN_WEATHER_MAP_KEY}
 
 useEffect(() => {
   setLoading(true);

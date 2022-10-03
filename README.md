@@ -11,6 +11,7 @@ Countries App is an Application for React Advance course of HBC. Is meant to be 
 - Axios
 - Github
 - Bootstrap
+- localstorage
 
 ## Data from:
 
