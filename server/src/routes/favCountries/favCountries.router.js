@@ -2,8 +2,8 @@ const express = require("express");
 
 const { getALLFavCountries } = require("./favCountriesController");
 
-const planetsRouter = express.Router();
+const favCountriesRouter = express.Router();
 
-planetsRouter.get("/favcountries", getALLFavCountries);
+favCountriesRouter.get("/favcountries", getALLFavCountries);
 
-module.exports = planetsRouter;
+module.exports = favCountriesRouter;
