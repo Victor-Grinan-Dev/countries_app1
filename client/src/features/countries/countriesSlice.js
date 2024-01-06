@@ -54,19 +54,6 @@ export const countriesSlice = createSlice({
   },
 });
 
-// export const findCountryCodes = async (countryList) => {
-//   const favCountryObject = [];
-//   await countryList.forEach((c) => {
-//     state.countries.forEach((tc) => {
-//       if (tc.name.common === c) {
-//         console.log(tc);
-//         addFavCountriesObjects(tc);
-//       }
-//     });
-//   });
-//   return favCountryObject;
-// };
-
 export const initializeCountries = () => {
   return async (dispatch) => {
     const countries = await countryService.getAll();

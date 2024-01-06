@@ -7,3 +7,8 @@ export const httpGetALLFavCountries = async () => {
 
   return response.data;
 };
+export const httpGetALLCountries = async () => {
+  const response = await axios.get(API_URL + "/countries");
+
+  return response.data;
+};

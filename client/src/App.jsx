@@ -51,7 +51,7 @@ const App = () => {
       tempArray = initialData.split(",");
       dispatch(setFavorites(tempArray));
     }
-  }, [dispatch]);
+  }, [dispatch, countries]);
 
   return (
     <HashRouter>

@@ -3,16 +3,22 @@
 
 ## About:
 
-Countries App is an Application for React Advance course of HBC. Is meant to be a compilation of skillis learned during the React22K course.
+- This is a school project from Helsinki Busisnes College that has been pimp up with some internet courses from Udemy, originally this project didnt include a backend.
 
 ## Technologies:
 
-- React
-- Redux
-- Axios
-- Github
-- Bootstrap
-- localstorage
+- Frontend
+    - React
+    - Redux
+    - Axios
+    - Github
+    - Bootstrap
+    - localstorage
+
+- Backend
+    - cors
+    - Axios
+    - express
 
 ## Data from:
 

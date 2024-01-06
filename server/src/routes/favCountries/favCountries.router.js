@@ -1,6 +1,6 @@
 const express = require("express");
 
-const { getALLFavCountries } = require("./favCountriesController");
+const { getALLFavCountries } = require("./favCountries.controller");
 
 const favCountriesRouter = express.Router();
 
