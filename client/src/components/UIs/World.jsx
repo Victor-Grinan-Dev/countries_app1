@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 const World = (props) => {
   const { favListCodes } = props;
   const countries = useSelector((state) => state.countries.countries);
-  const color = "#ff0";
+  const color = "orange";
   return (
     <div>
       <section className="ag-canvas">
