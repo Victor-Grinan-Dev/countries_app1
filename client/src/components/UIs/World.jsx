@@ -1,8 +1,10 @@
 import React from "react";
+import { useSelector } from "react-redux";
 
 const World = (props) => {
   const { favListCodes } = props;
-  const color = "#ffffff";
+  const countries = useSelector((state) => state.countries.countries);
+  const color = "#ff0";
   return (
     <div>
       <section className="ag-canvas">
@@ -897,8 +899,13 @@ const World = (props) => {
         </svg>
       </section>
       {favListCodes &&
-        favListCodes.forEach((code) => {
-          document.getElementById(code).style.fill = color;
+        favListCodes.forEach((favCountry) => {
+          countries.forEach((country) => {
+            if (country.name.common === favCountry) {
+              console.log(country.cca2);
+              document.getElementById(`${country.cca2}`).style.fill = color;
+            }
+          });
         })}
     </div>
   );
