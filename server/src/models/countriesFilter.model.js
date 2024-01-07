@@ -14,7 +14,7 @@ async function readFile(filePath) {
       .pipe(csv())
       .on("data", (data) => filteredCountries.push(data))
       .on("end", () => {
-        console.log(filteredCountries);
+        // console.log(filteredCountries);
         // [
         //   { NAME: 'Daffy Duck', AGE: '24' },
         //   { NAME: 'Bugs Bunny', AGE: '22' }
