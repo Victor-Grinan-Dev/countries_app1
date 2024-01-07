@@ -5,6 +5,7 @@ const dirPath = require("path").dirname(require.main.filename);
 const filteredCountries = [];
 
 const file_path = "/data/countries_of_the_world.csv";
+// const regex = /^([cC])\w*$/i;
 
 const presetEval = {
   birthRate:
@@ -13,9 +14,10 @@ const presetEval = {
   birthDeath:
     "country['Infant mortality (per 1000 births)'] !== '' && Number(country['Infant mortality (per 1000 births)']) < 1000 ",
   birthDeathNoData: "country['Infant mortality (per 1000 births)'] === ''",
-  population: "country['Population'] > 10000000",
+  population: "Number(country['Population']) > 100000000",
+  namesStartsWith: "/^([rR])w*$/.test(country['Country'])",
 };
-const toEval = presetEval.birthRateNoData;
+const toEval = presetEval.population;
 
 function checkCoutryCriteria(country) {
   if (eval(toEval)) return country;
