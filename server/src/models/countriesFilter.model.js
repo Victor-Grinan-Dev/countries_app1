@@ -1,63 +1,43 @@
 const csv = require("csv-parser");
 const fs = require("fs");
 const dirPath = require("path").dirname(require.main.filename);
+// const filter = require("../functions/filter/filter");
 const filteredCountries = [];
 
 const file_path = "/data/countries_of_the_world.csv";
 
+const presetEval = {
+  birthRate:
+    "Number(country['Birthrate']) > 20 && Number(country['Birthrate']) < 40",
+  birthRateNoData: "country['Birthrate'] === ''",
+  birthDeath:
+    "country['Infant mortality (per 1000 births)'] !== '' && Number(country['Infant mortality (per 1000 births)']) < 1000 ",
+  birthDeathNoData: "country['Infant mortality (per 1000 births)'] === ''",
+  population: "country['Population'] > 10000000",
+};
+const toEval = presetEval.birthRateNoData;
+
+function checkCoutryCriteria(country) {
+  if (eval(toEval)) return country;
+}
+
 async function readFile(filePath) {
   try {
-    // const data = await fs.readFile(dirPath + filePath);
-    // console.log(data.toString());
     await fs
-      .createReadStream(dirPath + file_path)
+      .createReadStream(dirPath + filePath)
       .pipe(csv())
-      .on("data", (data) => filteredCountries.push(data))
+      .on("data", (data) => {
+        if (checkCoutryCriteria(data)) {
+          filteredCountries.push(data);
+        }
+      })
       .on("end", () => {
-        // console.log(filteredCountries);
-        // [
-        //   { NAME: 'Daffy Duck', AGE: '24' },
-        //   { NAME: 'Bugs Bunny', AGE: '22' }
-        // ]
+        console.log(`Found ${filteredCountries.length} countries`);
       });
   } catch (error) {
     console.error(`Got an error trying to read the file: ${error.message}`);
   }
 }
-
-// function checkCoutryCriteria(country) {
-//   return (
-//     country["Birthrate"] < 40 //&& country["Infant mortality (per 1000 births)"]
-//   );
-// }
-
-// fs.createReadStream("countries of the world.csv");
-//   .pipe
-//     parse({
-//       comment: "#",
-//       columns: true,
-//     })
-//   )
-//   .on("data", (data) => {
-//     if (checkCoutryCriteria(data)) {
-//       filteredCountries.push(data);
-//     }
-//   })
-//   .on("error", (err) => {
-//     console.log(err);
-//   })
-//   .on("end", () => {
-//     console.log(
-//       selectedCountries.map((country) => {
-//         return country["Country"];
-//       })
-//     );
-//     console.log(
-//       `${
-//         selectedCountries.length
-//       } countries with criteria "${"Birthrate < 40"}" found!`
-// );
-//   });
 
 readFile(file_path);
 
