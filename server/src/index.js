@@ -6,9 +6,9 @@ const { loadCountriesData } = require("./models/countries.models");
 const PORT = process.env.SERVER_PORT || 3001;
 
 const server = http.createServer(app);
-app.get("/", (req, res) => {
-  res.send("HELLO");
-});
+// app.get("/", (req, res) => {
+
+// });
 
 async function loadData() {
   await loadCountriesData();
