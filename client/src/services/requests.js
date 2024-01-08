@@ -4,7 +4,7 @@ const API_URL = "http://localhost:3001";
 
 export const httpGetALLCountries = async () => {
   const response = await axios.get(API_URL + "/allcountries");
-  // console.log(response.data);
+  // console.log(response.data);//Working
   return response.data;
 };
 

@@ -1,3 +1,9 @@
+@import "./components/styles/singleItem.css";
+@import "./components/styles/home.css";
+@import "./components/styles/browse.css";
+@import "./components/styles/Card.css";
+@import "./components/styles/world.css";
+@import "./components/styles/data_analizer_table.css";
 .App {
   text-align: center;
 }

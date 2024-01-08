@@ -1,0 +1,17 @@
+.table-canvas{
+    padding: 5px;
+    background-color: antiquewhite;
+    width: 95vw;
+    overflow-x: scroll;
+}
+
+
+.td-cell,
+.th-cell{
+    padding: 0 5px;
+    border: 2px solid black;
+}
+
+.td-cell{
+    background-color: aliceblue;
+}

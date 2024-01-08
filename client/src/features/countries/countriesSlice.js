@@ -22,7 +22,7 @@ export const countriesSlice = createSlice({
       state.countries = action.payload;
     },
     setDataCountries(state, action) {
-      state.countries = action.payload;
+      state.dataCountries = action.payload;
     },
     setFilterDataCountries(state, action) {
       state.countries = action.payload;

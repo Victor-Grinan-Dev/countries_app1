@@ -10,11 +10,6 @@ import SingleItem from "./components/pages/SingleItem";
 import About from "./components/pages/About";
 import Analizer from "./components/pages/Analizer";
 import "./App.css";
-import "./components/styles/singleItem.css";
-import "./components/styles/home.css";
-import "./components/styles/browse.css";
-import "./components/styles/Card.css";
-import "./components/styles/world.css";
 
 import { LinkContainer } from "react-router-bootstrap";
 import Container from "react-bootstrap/Container";
