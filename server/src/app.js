@@ -16,6 +16,7 @@ app.use(
 );
 app.use(express.static(path.join(__dirname, "..", "public")));
 
+//routes
 app.use(countriesRouter);
 app.use(favCountriesRouter);
 app.use(filterCountriesRouter);
