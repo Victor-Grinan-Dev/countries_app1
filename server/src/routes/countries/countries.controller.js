@@ -1,7 +1,8 @@
-const { countries } = require("../../models/countries.models");
+const { allCountries } = require("../../models/countries.models");
 
 const getALLCountries = (req, res) => {
-  res.status(200).json(countries);
+  console.log("from controller", allCountries.length);
+  res.status(200).json(allCountries);
 };
 
 module.exports = { getALLCountries };

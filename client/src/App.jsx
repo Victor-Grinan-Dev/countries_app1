@@ -1,14 +1,15 @@
-import React, { HashRouter, Routes, Route } from "react-router-dom";
+import React, {
+  // HashRouter,
+  Routes,
+  Route,
+  BrowserRouter,
+} from "react-router-dom";
 import Home from "./components/pages/Home";
 import Browse from "./components/pages/Browse";
 import SingleItem from "./components/pages/SingleItem";
 import About from "./components/pages/About";
+import Analizer from "./components/pages/Analizer";
 import "./App.css";
-import "./components/styles/singleItem.css";
-import "./components/styles/home.css";
-import "./components/styles/browse.css";
-import "./components/styles/Card.css";
-import "./components/styles/world.css";
 
 import { LinkContainer } from "react-router-bootstrap";
 import Container from "react-bootstrap/Container";
@@ -51,10 +52,12 @@ const App = () => {
       tempArray = initialData.split(",");
       dispatch(setFavorites(tempArray));
     }
-  }, [dispatch, countries]);
+    // eslint-disable-next-line
+  }, [dispatch]);
 
   return (
-    <HashRouter>
+    <BrowserRouter>
+      {/* <HashRouter> */}
       <Navbar
         bg="light"
         expand="lg"
@@ -71,49 +74,40 @@ const App = () => {
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
               <LinkContainer to="/">
-                <Nav.Link to="#home">Home</Nav.Link>
+                <Nav.Link to="home">Home</Nav.Link>
               </LinkContainer>
 
-              <LinkContainer to="/Browse">
+              <LinkContainer to="/browse">
                 <Nav.Link>Browse</Nav.Link>
               </LinkContainer>
 
-              <LinkContainer to="/favorites">
-                <Nav.Link>Favorites</Nav.Link>
-              </LinkContainer>
-
-              <LinkContainer to="/About">
+              <LinkContainer to="/about">
                 <Nav.Link>About</Nav.Link>
               </LinkContainer>
 
               <NavDropdown title="Menu" id="basic-nav-dropdown">
-                <LinkContainer to="/Browse">
-                  <NavDropdown.Item>Browse</NavDropdown.Item>
-                </LinkContainer>
-
-                <LinkContainer to="/About">
-                  <NavDropdown.Item>About</NavDropdown.Item>
-                </LinkContainer>
-
-                <NavDropdown.Divider />
-
                 <LinkContainer to="/favorites">
                   <NavDropdown.Item>Favorites</NavDropdown.Item>
+                </LinkContainer>
+                <NavDropdown.Divider />
+                <LinkContainer to="/analizer">
+                  <NavDropdown.Item>Data Analizer</NavDropdown.Item>
                 </LinkContainer>
               </NavDropdown>
             </Nav>
           </Navbar.Collapse>
         </Container>
       </Navbar>
-
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="browse" element={<Browse />} />
         <Route path="about" element={<About />} />
         <Route path="favorites" element={<Favorites />} />
+        <Route path="analizer" element={<Analizer />} />
         <Route path="browse/:single" element={<SingleItem />} />
       </Routes>
-    </HashRouter>
+      {/* </HashRouter> */}
+    </BrowserRouter>
   );
 };
 

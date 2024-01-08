@@ -1,37 +1,37 @@
-const parse = require("csv-parse");
 const fs = require("fs");
+const path = require("path");
+const csv = require("csv-parser");
 
-const habitablePlanets = [];
+const allCountries = [];
 
-function isHabitablePlanet(planet) {
-  return (
-    planet["koi_disposition"] === "CONFIRMED" &&
-    planet["koi_insol"] > 0.36 &&
-    planet["koi_insol"] < 1.11 &&
-    planet["koi_prad"] < 1.6
-  );
+async function purifyCountries() {
+  return allCountries.filter((item, index) => arr.indexOf(item) === index);
 }
 
-fs.createReadStream("kepler_data.csv")
-  .pipe(
-    parse({
-      comment: "#",
-      columns: true,
-    })
-  )
-  .on("data", (data) => {
-    if (isHabitablePlanet(data)) {
-      habitablePlanets.push(data);
-    }
-  })
-  .on("error", (err) => {
-    console.log(err);
-  })
-  .on("end", () => {
-    console.log(
-      habitablePlanets.map((planet) => {
-        return planet["kepler_name"]; //Pop. Density (per sq. mi.)
+async function loadCountriesData() {
+  // return new Promise((resolve, reject) => {
+  try {
+    fs.createReadStream(
+      path.join(__dirname, "..", "data", "countries_of_the_world.csv")
+    )
+      .pipe(csv())
+      .on("data", (data) => {
+        if (allCountries.length < 227) allCountries.push(data);
       })
-    );
-    console.log(`${habitablePlanets.length} habitable planets found!`);
-  });
+      .on("error", (err) => {
+        console.log(err);
+        reject(err);
+      })
+      .on("end", () => {
+        console.log(`Database contains ${allCountries.length} countries entry`);
+      });
+  } catch (error) {
+    console.error(`Got an error trying to read the file: ${error.message}`);
+    resolve();
+  }
+  // });
+}
+loadCountriesData();
+purifyCountries();
+
+module.exports = { loadCountriesData, allCountries };

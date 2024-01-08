@@ -2,12 +2,11 @@
   "name": "countries_app1",
   "version": "0.1.0",
   "private": true,
-  "homepage":"https://victor-grinan-dev.github.io/countries_app1/",
+  "proxy":"http://localhost:3001/",
   "dependencies": {
     "-": "^0.0.1",
     "@reduxjs/toolkit": "^1.8.5",
     "axios": "^0.27.2",
-    "gh-pages": "^4.0.0",
     "react": "^18.2.0",
     "react-bootstrap": "^2.5.0",
     "react-dom": "^18.2.0",
@@ -18,7 +17,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "set BUILD_PATH=../server/public && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
