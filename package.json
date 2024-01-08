@@ -1,0 +1,20 @@
+{
+  "name": "countries_app1",
+  "version": "1.0.0",
+  "description": "- Frontend\r     - @reduxjs/toolkit\r     - axios\r     - react-bootstrap & react-router-bootstrap\r     - react-redux",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "install-server": "npm start --prefix server",
+    "install-client": "npm start --prefix client",
+    "install": "npm run install-server && npm run install-client",
+    "server": "npm start --prefix server",
+    "client": "npm start --prefix client",
+    "start": "concurrently --kill-others \"npm run server\" \"npm run client\""
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
