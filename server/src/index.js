@@ -10,11 +10,11 @@ app.get("/", (req, res) => {
   res.send("HELLO");
 });
 
-async function startServer() {
+async function loadData() {
   await loadCountriesData();
-  server.listen(PORT, () => {
-    console.log(`server running on http://localhost:${PORT}`);
-  });
 }
 
-startServer();
+loadData();
+server.listen(PORT, () => {
+  console.log(`server running on http://localhost:${PORT}`);
+});

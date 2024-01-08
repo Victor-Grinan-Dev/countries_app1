@@ -4,6 +4,6 @@ const { getALLCountries } = require("./countries.controller");
 
 const countriesRouter = express.Router();
 
-countriesRouter.get("/allCountries", getALLCountries);
+countriesRouter.get("/allcountries", getALLCountries);
 
 module.exports = countriesRouter;

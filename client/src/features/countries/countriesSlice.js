@@ -1,11 +1,16 @@
 import { createSlice, current } from "@reduxjs/toolkit";
 import countryService from "../../services/countries";
-import { httpGetALLFavCountries } from "../../services/requests";
+import {
+  httpGetALLCountries,
+  httpGetALLFavCountries,
+} from "../../services/requests";
 
 export const countriesSlice = createSlice({
   name: "countries",
   initialState: {
     countries: [],
+    dataCountries: [],
+    filterDataCountries: [],
     isLoading: true,
     search: "",
     favoriteCountries: [],
@@ -14,6 +19,12 @@ export const countriesSlice = createSlice({
 
   reducers: {
     getCountries(state, action) {
+      state.countries = action.payload;
+    },
+    setDataCountries(state, action) {
+      state.countries = action.payload;
+    },
+    setFilterDataCountries(state, action) {
       state.countries = action.payload;
     },
 
@@ -60,8 +71,12 @@ export const initializeCountries = () => {
     const favCountries = await httpGetALLFavCountries((data) =>
       console.log(data)
     );
+    const dataCountries = await httpGetALLCountries((data) =>
+      console.log(data.data)
+    );
 
     dispatch(setFavorites(favCountries));
+    dispatch(setDataCountries(dataCountries));
     dispatch(getCountries(countries));
     dispatch(isLoading(false));
   };
@@ -74,6 +89,8 @@ export const {
   addToFavorite,
   deleteFromFavorite,
   setFavorites,
+  setDataCountries,
+  setFilterDataCountries,
   addFavCountriesObjects,
 } = countriesSlice.actions;
 
