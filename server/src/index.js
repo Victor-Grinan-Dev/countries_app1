@@ -1,3 +1,4 @@
+const path = require("path");
 const app = require("./app");
 const http = require("http");
 
@@ -7,7 +8,7 @@ const PORT = process.env.SERVER_PORT || 3001;
 
 const server = http.createServer(app);
 app.get("/", (req, res) => {
-  console.log("");
+  res.sendFile(path.join(__dirname, "..", "public", "index.html"));
 });
 
 async function loadData() {

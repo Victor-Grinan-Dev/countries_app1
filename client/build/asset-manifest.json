@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/static/css/main.ea703cbe.css",
+    "main.js": "/static/js/main.18b7cc33.js",
+    "static/media/pexels-nataliya-vaitkevich-7235902.jpg": "/static/media/pexels-nataliya-vaitkevich-7235902.d5979a367befe8391a0e.jpg",
+    "static/media/countries_currency.png": "/static/media/countries_currency.85ad206b6cbab8d604e3.png",
+    "static/media/countries_population.png": "/static/media/countries_population.0bd6b713e005d35b7a4b.png",
+    "static/media/countries_capital.png": "/static/media/countries_capital.203e0779d0241873a181.png",
+    "static/media/countries_language.png": "/static/media/countries_language.425095843e4b11165eb0.png",
+    "index.html": "/index.html",
+    "main.ea703cbe.css.map": "/static/css/main.ea703cbe.css.map",
+    "main.18b7cc33.js.map": "/static/js/main.18b7cc33.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ea703cbe.css",
+    "static/js/main.18b7cc33.js"
+  ]
+}
