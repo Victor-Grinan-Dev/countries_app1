@@ -10,7 +10,8 @@
     "install": "npm run install-server && npm run install-client",
     "server": "npm start --prefix server",
     "client": "npm start --prefix client",
-    "start": "concurrently --kill-others \"npm run server\" \"npm run client\""
+    "start": "concurrently --kill-others \"npm run server\" \"npm run client\"",
+    "build":"npm run build --prefix client && npm run build --prefix server"
   },
   "author": "",
   "license": "ISC",
