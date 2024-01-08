@@ -2,7 +2,7 @@ const fs = require("fs");
 const path = require("path");
 const csv = require("csv-parser");
 
-const countries = [];
+const allCountries = [];
 
 function loadCountriesData() {
   return new Promise((resolve, reject) => {
@@ -12,7 +12,7 @@ function loadCountriesData() {
       )
         .pipe(csv())
         .on("data", (data) => {
-          countries.push(data);
+          allCountries.push(data);
         })
         .on("error", (err) => {
           console.log(err);
@@ -20,7 +20,7 @@ function loadCountriesData() {
         })
         .on("end", () => {
           console.log(
-            `Data base contains ${countries.length} countriies entry`
+            `Data base contains ${allCountries.length} countriies entry`
           );
         });
     } catch (error) {
@@ -30,4 +30,4 @@ function loadCountriesData() {
   });
 }
 
-module.exports = { loadCountriesData, countries };
+module.exports = { loadCountriesData, allCountries };
