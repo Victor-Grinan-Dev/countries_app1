@@ -1,7 +1,7 @@
 .table-canvas{
-    padding: 5px;
     background-color: antiquewhite;
-    width: 95vw;
+    width: fit-content;
+    max-width: 95vw;
     overflow-x: scroll;
 }
 
