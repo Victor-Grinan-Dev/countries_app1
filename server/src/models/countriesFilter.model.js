@@ -15,6 +15,7 @@ const presetEval = {
     "country['Infant mortality (per 1000 births)'] !== '' && Number(country['Infant mortality (per 1000 births)']) < 1000 ",
   birthDeathNoData: "country['Infant mortality (per 1000 births)'] === ''",
   population: "Number(country['Population']) > 100000000",
+  //not working
   namesStartsWith: "/^([rR])w*$/.test(country['Country'])",
 };
 const toEval = presetEval.population;
@@ -25,16 +26,20 @@ function checkCoutryCriteria(country) {
 
 async function readFile(filePath) {
   try {
-    await fs
-      .createReadStream(dirPath + filePath)
+    fs.createReadStream(dirPath + filePath)
       .pipe(csv())
       .on("data", (data) => {
         if (checkCoutryCriteria(data)) {
           filteredCountries.push(data);
         }
       })
+      .on("error", (err) => {
+        console.log(err);
+      })
       .on("end", () => {
-        console.log(`Found ${filteredCountries.length} countries`);
+        console.log(
+          `Found ${filteredCountries.length} countries with filter (${toEval})`
+        );
       });
   } catch (error) {
     console.error(`Got an error trying to read the file: ${error.message}`);

@@ -903,7 +903,7 @@ const World = (props) => {
         favListCodes.forEach((favCountry) => {
           countries.forEach((country) => {
             if (country.name.common === favCountry) {
-              // console.log(country.cca2);
+              console.log(country.cca2);
               document.getElementById(`${country.cca2}`).style.fill = color;
             }
           });

@@ -1,7 +1,8 @@
 const express = require("express");
 const cors = require("cors");
+
 const favCountriesRouter = require("./routes/favCountries/favCountries.router");
-const filterCountriesRouter = require("./routes/countriesFilter/countriesFilter.router");
+const filterCountriesRouter = require("./routes/countriesFilter/countriesfilter.router");
 
 const app = express();
 
