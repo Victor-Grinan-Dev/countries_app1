@@ -1,17 +1,15 @@
-# Countries App:
+# 🚀 Welcome to your new awesome project!
 
+This project has been created using **webpack-cli**, you can now run
 
+```
+npm run build
+```
 
-## Dependencies:
+or
 
-- Frontend
-    - @reduxjs/toolkit
-    - axios
-    - react-bootstrap & react-router-bootstrap
-    - react-redux
+```
+yarn build
+```
 
-
-
-## Licence:
-
-- Go wild with it!!!
+to bundle your application

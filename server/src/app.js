@@ -14,15 +14,16 @@ app.use(
     origin: "http://localhost:3000",
   })
 );
-app.use(express.static(path.join(__dirname, "..", "public")));
+// app.use(express.static(path.join(__dirname + "/public")));
 
 //routes
 app.use(countriesRouter);
 app.use(favCountriesRouter);
 app.use(filterCountriesRouter);
 
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "..", "build", "index.html"));
-});
+// app.get("/", (req, res) => {
+//   // res.sendFile(path.join(__dirname, "..", "public", "index.html"));
+//   res.sendFile(path.join(__dirname, "..", "public", "index.html"));
+// });
 
 module.exports = app;
