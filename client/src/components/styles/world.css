@@ -8,6 +8,7 @@
 
   position: relative;
   visibility: visible;
+  top: 100px;
 
   width: 100vw;
   height: 100%;
@@ -17,7 +18,7 @@
 
   z-index: 1;
   margin-top: -90px;
-  background-color: #00000000;
+  background-color: #e6090900;
 }
 .ag-canvas_svg {
   display: block;
