@@ -1,34 +1,31 @@
-import React, { Children } from 'react';
-import { useSelector } from 'react-redux';
-import { favoriteCountriesSelector } from '../../features/countries/countriesSlice';
-import DraggingBoard from '../UIs/DraggingBoard';
-import FavCard from '../UIs/FavCard';
+// import React, { Children } from "react";
+// import { useState } from "react";
+import { useSelector } from "react-redux";
+
+// import DraggingBoard from '../UIs/DraggingBoard';
+// import FavCard from "../UIs/FavCard";
+
+import World from "../UIs/World";
 
 function Favorites() {
-  const countries = useSelector(favoriteCountriesSelector);
+  // const countries = useSelector((state) => state.countries.countries);
+  const favCountries = useSelector(
+    (state) => state.countries.favoriteCountries
+  );
+  const isLoading = useSelector((state) => state.countries.isLoading);
 
+  if (isLoading) {
+    return <h1>Loading...</h1>;
+  }
   return (
-    <div className='page' style={{ display:"flex", alignItems:"center", flexDirection:"column"}}>
-      <h2 style={{color:"white"}}>Drag and Drop:</h2>
-      
-      <div 
-      className="dnd" 
-      style={{display:"flex"}}>
-
-        <DraggingBoard>
-          
-            {
-              countries.map((c, i) => (
-                <FavCard key={i} name={c} id={i}/>
-              ))
-            }
-        </DraggingBoard>
-
-      </div>
-
+    <div
+      className="page"
+      style={{ display: "flex", alignItems: "center", flexDirection: "column" }}
+    >
+      <h2 style={{ color: "white" }}>Favorites</h2>
+      <World favListCodes={favCountries} />
     </div>
-
-  )
+  );
 }
 
-export default Favorites
+export default Favorites;
