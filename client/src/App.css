@@ -5,6 +5,8 @@
 @import "./components/styles/world.css";
 @import "./components/styles/data_analizer_table.css";
 
+
+/**** RESET CSS ****/
 /*
   1. Use a more-intuitive box-sizing model.
 */
@@ -52,6 +54,8 @@ p, h1, h2, h3, h4, h5, h6 {
   isolation: isolate;
 }
 
+
+/**** APP STYLES ****/
 .App {
   text-align: center;
 }
