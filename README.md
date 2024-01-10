@@ -14,11 +14,13 @@
     - Github
     - Bootstrap
     - localstorage
+    
 
 - Backend
     - cors
     - Axios
     - express
+    - morgan
 
 ## Data from:
 
