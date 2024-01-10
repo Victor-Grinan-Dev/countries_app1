@@ -14,7 +14,7 @@ app.use(
     origin: "http://localhost:3000",
   })
 );
-// app.use(express.static(path.join(__dirname + "/public")));
+app.use(express.static(path.join(__dirname, "..", "public")));
 
 //routes
 app.use(countriesRouter);
