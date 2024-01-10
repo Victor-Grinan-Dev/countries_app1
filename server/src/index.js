@@ -1,26 +1,15 @@
 const path = require("path");
-const fs = require("fs");
 const app = require("./app");
 const http = require("http");
 
 const { loadCountriesData } = require("./models/countries.models");
 
-// fs.readFileSync(path.join(__dirname, "..", "public", "index.html"));
-console.log(path.join(__dirname, "..", "public", "index.html"));
 const PORT = process.env.SERVER_PORT || 3001;
 
 const server = http.createServer(app);
-// app.get("/", (req, res) => {
-//   // res.sendFile(__dirname + "/../public/index.html");
-//   res.sendFile("index.html", {
-//     root: "public",
-//   });
-//   // res.send("ok");
-// });
 
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "..", "public", "index.html"));
-  //   res.sendFile(path.join(__dirname, "..", "public", "index.html"));
 });
 
 async function loadData() {

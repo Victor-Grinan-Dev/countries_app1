@@ -21,9 +21,4 @@ app.use(countriesRouter);
 app.use(favCountriesRouter);
 app.use(filterCountriesRouter);
 
-// app.get("/", (req, res) => {
-//   // res.sendFile(path.join(__dirname, "..", "public", "index.html"));
-//   res.sendFile(path.join(__dirname, "..", "public", "index.html"));
-// });
-
 module.exports = app;

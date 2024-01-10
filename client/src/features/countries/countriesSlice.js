@@ -67,6 +67,7 @@ export const countriesSlice = createSlice({
 
 export const initializeCountries = () => {
   return async (dispatch) => {
+    dispatch(isLoading(true));
     const countries = await countryService.getAll();
     const favCountries = await httpGetALLFavCountries((data) =>
       console.log(data)
