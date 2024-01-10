@@ -1,10 +1,11 @@
 import React from "react";
-import { httpGetFilterCountries } from "../../services/requests";
-import { useDispatch, useSelector } from "react-redux";
+// import { httpGetFilterCountries } from "../../services/requests";
+import { useSelector } from "react-redux";
+// import { useDispatch } from "react-redux";
 
 const Analizer = () => {
   // const data = httpGetFilterCountries();
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const dataCountries = useSelector((state) => {
     return state.countries.dataCountries;
   });

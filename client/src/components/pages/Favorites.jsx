@@ -1,7 +1,6 @@
 // import React, { Children } from "react";
 // import { useState } from "react";
 import { useSelector } from "react-redux";
-import { addToFavorite } from "../../features/countries/countriesSlice";
 
 // import DraggingBoard from '../UIs/DraggingBoard';
 // import FavCard from "../UIs/FavCard";
@@ -9,7 +8,7 @@ import { addToFavorite } from "../../features/countries/countriesSlice";
 import World from "../UIs/World";
 
 function Favorites() {
-  const countries = useSelector((state) => state.countries.countries);
+  // const countries = useSelector((state) => state.countries.countries);
   const favCountries = useSelector(
     (state) => state.countries.favoriteCountries
   );
@@ -22,7 +21,7 @@ function Favorites() {
       <h2 style={{ color: "white" }}>Favorites</h2>
       <World favListCodes={favCountries} />
 
-      {/* {console.log("inside favorites comp:", favCountries)} */}
+      {/* {console.log("inside favorites comp:", favCountries)}
       {countries &&
         favCountries &&
         countries.map((c) => {
@@ -32,8 +31,9 @@ function Favorites() {
               // console.log(c.cca2);
               addToFavorite(c.cca2);
             }
+            return;
           });
-        })}
+        })} */}
     </div>
   );
 }
