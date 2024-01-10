@@ -86,9 +86,9 @@ const App = () => {
               </LinkContainer>
 
               <NavDropdown title="Menu" id="basic-nav-dropdown">
-                {/* <LinkContainer to="/favorites">
+                <LinkContainer to="/favorites">
                   <NavDropdown.Item>Favorites</NavDropdown.Item>
-                </LinkContainer> */}
+                </LinkContainer>
                 <NavDropdown.Divider />
                 <LinkContainer to="/analizer">
                   <NavDropdown.Item>Data Analizer</NavDropdown.Item>

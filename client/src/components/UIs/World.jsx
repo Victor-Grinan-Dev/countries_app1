@@ -1,10 +1,22 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 
 const World = (props) => {
   const { favListCodes } = props;
   const countries = useSelector((state) => state.countries.countries);
   const color = "orange";
+
+  useEffect(() => {
+    favListCodes.forEach((favCountry) => {
+      countries.forEach((country) => {
+        if (country.name.common === favCountry) {
+          console.log(country.cca2);
+          document.getElementById(`${country.cca2}`).style.fill = color;
+        }
+      });
+    });
+  }, []);
+
   return (
     <div>
       <section className="ag-canvas">
@@ -898,16 +910,6 @@ const World = (props) => {
           />
         </svg>
       </section>
-      {favListCodes &&
-        countries &&
-        favListCodes.forEach((favCountry) => {
-          countries.forEach((country) => {
-            if (country.name.common === favCountry) {
-              console.log(country.cca2);
-              document.getElementById(`${country.cca2}`).style.fill = color;
-            }
-          });
-        })}
     </div>
   );
 };
