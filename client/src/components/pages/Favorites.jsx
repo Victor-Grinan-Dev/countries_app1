@@ -12,7 +12,11 @@ function Favorites() {
   const favCountries = useSelector(
     (state) => state.countries.favoriteCountries
   );
+  const isLoading = useSelector((state) => state.countries.isLoading);
 
+  if (isLoading) {
+    return <h1>Loading...</h1>;
+  }
   return (
     <div
       className="page"
@@ -20,20 +24,6 @@ function Favorites() {
     >
       <h2 style={{ color: "white" }}>Favorites</h2>
       <World favListCodes={favCountries} />
-
-      {/* {console.log("inside favorites comp:", favCountries)}
-      {countries &&
-        favCountries &&
-        countries.map((c) => {
-          favCountries.map((fc) => {
-            if (c.name.common.toLowerCase() === fc.toLowerCase()) {
-              // console.log(c.name.common);
-              // console.log(c.cca2);
-              addToFavorite(c.cca2);
-            }
-            return;
-          });
-        })} */}
     </div>
   );
 }
