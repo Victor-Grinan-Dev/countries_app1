@@ -7,7 +7,7 @@ const favCountriesRouter = require("./routes/favCountries/favCountries.router");
 const filterCountriesRouter = require("./routes/countriesFilter/countriesfilter.router");
 
 const corWhiteList = [
-  "https://countries-app-five-mu.vercel.app/",
+  "https://countries-app-eta-nine.vercel.app",
   "http://localhost:3000",
 ];
 
