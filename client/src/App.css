@@ -68,15 +68,23 @@ body{
   background-image: url('../public/assets/pexels-nataliya-vaitkevich-7235902.jpg');
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-size: 100%;
+  background-size:cover;
+
   align-items: center;
   flex-direction: column;
   background-color: rgb(4, 10, 15);
+  /* overflow: hidden; */
+}
+
+
+#root{
+  min-height: 100%;
 }
 
 .page{
-  background-color: rgba(0, 0, 0, 0.874);
-  min-height: 94vh;
+  display: flex;
+  background-color: rgba(0, 0, 0, 0.823);
+  min-height: 150%;
 }
 
 .refText{
