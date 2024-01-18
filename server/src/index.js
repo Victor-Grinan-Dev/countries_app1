@@ -9,7 +9,8 @@ const PORT = process.env.SERVER_PORT || 3001;
 const server = http.createServer(app);
 
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "..", "public", "index.html"));
+  // res.sendFile(path.join(__dirname, "..", "public", "index.html"));
+  res.send("server is runing");
 });
 
 async function loadData() {
